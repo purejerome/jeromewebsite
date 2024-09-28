@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet">
+      <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/workprojects.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jerome's Portfolio</title>
+  </head>
+  <body>
+    <div class="loadContainer"><p>Loading...</p></div>
+    <nav class="navbar">
+      <div class="title">
+        <div class="slider">
+          <span>Jerome</span><span>Jerome</span><span>Jerome</span>
+        </div>
+        <div class="slider">
+          <span>Jerome</span><span>Jerome</span><span>Jerome</span>
+        </div>
+        <div class="slider">
+          <span>Jerome</span><span>Jerome</span><span>Jerome</span>
+        </div>
+      </div>
+      <div class="links">
+        <a href="../index.html" class="navLinks">Home</a>
+        <a href="./about.html" class="navLinks">About</a>
+        <a href="./workprojects.html" class="navLinks">Work/Projects</a>
+        <a href="./resume.html" class="navLinks">Resume</a>
+        <a href="./contact.html" class="navLinks">Contact</a>
+      </div>
+      <div class="hamburger">
+        <button>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <div class="dropLinks">
+        <a href="../index.html" class="navLinks">Home</a>
+        <hr>
+        <a href="./about.html" class="navLinks">About</a>
+        <hr>
+        <a href="./workprojects.html" class="navLinks">Work/Projects</a>
+        <hr>
+        <a href="./resume.html" class="navLinks">Resume</a>
+        <hr>
+        <a href="./contact.html" class="navLinks">Contact</a>
+      </div>
+    </nav>
+    <main class="mainContainer">
+        <div class="fullInfoContainer invisible">
+            <button class="exit">
+                <i class="fa-solid fa-x"></i>
+            </button>
+        </div>
+        <div class="projContainer">
+            <div class="projIcon" id="MusicCPR"></div>
+            <div class="projIcon" id="UnitED"></div>
+            <div class="projIcon" id="SHOWSCOPE"></div>
+            <div class="projIcon" id="Y86"></div>
+        </div>
+    </main>
+    <script type="module" src="../scripts/scroll_on_load.js"></script>
+    <script type="module" src="../scripts/nav_drop.js"></script>
+    <script type="module" src="../scripts/coding_particles.js"></script>
+    <script type="module" src="../scripts/populate_work_buttons.js"></script>
+    <script type="module" src="../scripts/check_loaded.js"></script>
+  </body>
+</html>

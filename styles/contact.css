@@ -1,0 +1,259 @@
+.wrapper{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+}
+
+.header{
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.emailFormContainer{
+    width: 100%;
+}
+
+.emailFormContainer form{
+    width: 100%;
+    /* margin: 0 auto; */
+}
+
+#result{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    width: 400px;
+    max-width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    background-color: black;
+    border: 3px white solid;
+    border-radius: 10px;
+    padding: 20px 0 20px 0;
+    transform: translateY(-100%);
+    transition: 
+        transform 0.4s ease-out,
+        opacity 0.7s linear,
+        visibility 0.7s linear;
+}
+
+.movedResult{
+    transform: translateY(0%) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#result i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#message{
+    resize: none;
+}
+
+.formDiv{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.6rem;
+    position: relative;
+}
+
+.fa-check-circle{
+    color: greenyellow;
+}
+
+.fa-exclamation-circle{
+    color: red;
+}
+
+.errorMessage{
+    color: red;
+}
+
+.emailFormContainer form .formDiv:last-of-type i{
+    top: 36px;
+    right: 10px;
+}
+
+.formDiv i{
+    position: absolute;
+    top: 46px;
+    right: 10px;
+    display: none;
+    pointer-events: none;
+}
+
+.formDiv label{
+    position: relative;
+    width: max-content;
+    margin-bottom: 10px;
+}
+
+.formDiv textarea, .formDiv input{
+    color: white;
+    border: 2px solid transparent;
+    outline: none;
+    background-color: #272827;
+    accent-color: red;
+    font-family: "Lato", sans-serif;
+    padding: 10px 5px 10px 5px;
+    font-size: 1.3rem;
+}
+
+.formDiv textarea:-webkit-autofill, .formDiv input:-webkit-autofill{
+    -webkit-box-shadow: rgb(255, 191, 119) 0px 0px 0px 50px inset !important;
+}
+
+.formDiv textarea:-moz-autofill, .formDiv input:-moz-autofill{
+    -webkit-box-shadow: rgb(255, 191, 119) 0px 0px 0px 50px inset !important;
+}
+
+.formDiv textarea:-ms-autofill, .formDiv input:-ms-autofill{
+    -webkit-box-shadow: rgb(255, 191, 119) 0px 0px 0px 50px inset !important;
+}
+
+.formDiv label::after{
+    position: absolute;
+    display: block;
+    content: "*";
+    color: white;
+    top: 50%;
+    right: -10px; 
+    transform: translateY(-50%);
+}
+
+#messageDiv textarea{
+    height: 100px;
+    overflow-wrap: break-word;
+    word-break: normal;
+    max-height: 250px;
+}
+
+.errorInput{
+    border: 2px solid red !important;
+}
+
+.correctInput{
+    border: 2px solid greenyellow !important;
+}
+
+.submitButton{
+    width: 100px;
+    font-size: 1.3rem;
+    padding: 10px 2px 10px 2px;
+    border-radius: 50px;
+    border-style: none;
+    border-color: transparent;
+    font-family: "Lato", sans-serif;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.submitButton:active{
+    background-color: rgb(188, 188, 188);
+}
+
+.formDiv input:focus, .formDiv textarea:focus{
+    box-shadow: inset 0px 0px 0px 4px rgba(123, 123, 123, 0.635);
+}
+ 
+.emailContainer, .phoneNumberContainer{
+    margin: 20px 0 50px 0;
+    font-size: 2rem;
+}
+
+.emailHereContainer{
+    position: relative;
+    font-size: 2rem;
+    margin: 0 0 100px 0;
+}
+
+.arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#leftArrow{
+    left: -10vw;
+}
+
+#rightArrow{
+    right: -10vw;
+}
+
+.word{
+    display: inline-flex;
+}
+
+.word span{
+    will-change: transform;
+}
+
+.linksContainer{
+    width: 500px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+.socials{
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    transition: scale 0.05s ease-out;
+}
+
+.socials:active{
+    opacity: 0.5;
+}
+
+.socials:hover{
+    scale: 1.2;
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper{
+        width: 90%;
+    }
+    
+    .linksContainer{
+        width: 150px;
+    }
+
+    .socials{
+        width: 48px;
+        height: 48px;
+    }
+    .socials:hover{
+        scale: 1.1;
+    }
+    
+    .emailContainer, .phoneNumberContainer{
+        font-size: 1.2rem;
+    }
+    
+    .header{
+        font-size: 1.3rem;
+    }
+    .emailHereContainer{
+        font-size: 1.4rem;
+    }
+    
+    #leftArrow{
+        left: -20vw;
+    }
+
+    #rightArrow{
+        right: -20vw;
+    }
+}

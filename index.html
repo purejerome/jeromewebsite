@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet">
+      <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jerome's Portfolio</title>
+  </head>
+  <body>
+    <div class="loadContainer"><p>Loading...</p></div>
+    <nav class="navbar">
+      <div class="title">
+        <div class="slider">
+          <span>Jerome</span><span>Jerome</span><span>Jerome</span>
+        </div>
+        <div class="slider">
+          <span>Jerome</span><span>Jerome</span><span>Jerome</span>
+        </div>
+        <div class="slider">
+          <span>Jerome</span><span>Jerome</span><span>Jerome</span>
+        </div>
+      </div>
+      <div class="links">
+        <a href="index.html" class="navLinks">Home</a>
+        <a href="pages/about.html" class="navLinks">About</a>
+        <a href="pages/workprojects.html" class="navLinks">Work/Projects</a>
+        <a href="pages/resume.html" class="navLinks">Resume</a>
+        <a href="pages/contact.html" class="navLinks">Contact</a>
+      </div>
+      <div class="hamburger">
+        <button>
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <div class="dropLinks">
+        <a href="index.html" class="navLinks">Home</a>
+        <hr>
+        <a href="pages/about.html" class="navLinks">About</a>
+        <hr>
+        <a href="pages/workprojects.html" class="navLinks">Work/Projects</a>
+        <hr>
+        <a href="pages/resume.html" class="navLinks">Resume</a>
+        <hr>
+        <a href="pages/contact.html" class="navLinks">Contact</a>
+      </div>
+    </nav>
+    <main class="mainContainer">
+      <div class="headingSection section">
+        <h1 class="indexHeader">Welcome to the World of Jerom<span>e</span></h1>
+      </div>
+      <div class="secondSection section">
+        <p>
+          Learn everything about<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+        </p>
+      </div>
+      <div class="meSectionOuter section">
+        <div class="meSectionInner">
+          <span>me</span> <span>me</span> <span>me</span> <span>me</span> <span>me</span> <span>me</span>
+          <span>me</span> <span>me</span> <span>me</span> <span>me</span> <span>me</span> <span>me</span>
+          <span>me</span> <span>me</span> <span>me</span> <span>me</span> <span>me</span> <span>me</span>
+          <span>me</span> <span>me</span> <span>me</span> <span>me</span> <span>me</span> <span>me</span>
+        </div>
+      </div>
+      <div class="creditSection section">
+        <h1 class="creditHeader">
+          <span class="outerSpan">
+            <span id="A1">A</span>
+            <span id="n1">n</span>
+            <span id="d1">d</span>
+          </span>
+          
+          <span class="outerSpan">
+            <span id="m2">m</span>
+            <span id="y2">y</span>
+          </span>
+          
+          <span class="outerSpan">
+            <span id="c3">c</span>
+            <span id="r3">r</span>
+            <span id="e3">e</span>
+            <span id="d3">d</span>
+            <span id="i3">i</span>
+            <span id="t3">t</span>
+            <span id="a3">a</span>
+            <span id="l3">l</span>
+            <span id="s3">s</span>
+          </span>
+          
+          <span class="outerSpan">
+            <span id="f4">f</span>
+            <span id="o4">o</span>
+            <span id="r4">r</span>
+          </span>
+          
+          <span class="outerSpan">
+            <span id="d5">d</span>
+            <span id="e51">e</span>
+            <span id="v5">v</span>
+            <span id="e52">e</span>
+            <span id="l5">l</span>
+            <span id="o5">o</span>
+            <span id="p5">p</span>
+            <span id="m5">m</span>
+            <span id="e53">e</span>
+            <span id="n5">n</span>
+            <span id="t5">t</span>
+          </span>
+        </h1>
+        <svg id="outersvg"><path id="innerpath" stroke-linecap="round" fill-rule="evenodd" /></svg>
+      </div>
+      <div class="linksContainer">
+        <a href="https://www.linkedin.com/in/jerome-donfack" target="_blank">
+          <img src="/images/socials_logos/linkedin.png" draggable="false" class="socials" id="linkedin">
+        </a>
+        <a href="https://github.com/purejerome" target="_blank">
+          <img src="/images/socials_logos/github.svg" draggable="false" class="socials" id="github">
+        </a>
+      </div>
+    </main>
+    <canvas id="bg"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/opentype.js@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+    <script type="module" src="scripts/scroll_on_load.js"></script>
+    <script type="module" src="scripts/titan.js"></script>
+    <script type="module" src="scripts/index_page.js"></script>
+    <script type="module" src="scripts/nav_drop.js"></script>
+    <script type="module" src="scripts/coding_particles.js"></script>
+    <script type="module" src="scripts/check_loaded.js"></script>
+  </body>
+</html>

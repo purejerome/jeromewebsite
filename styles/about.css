@@ -1,0 +1,75 @@
+body{
+    height: calc(400vh + 80px);
+}
+
+.mainContainer{
+    max-width: 1500px;
+}
+
+.outerInfoContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    scroll-snap-align: center;
+}
+
+.innerInfoContainer{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.textContainer{
+    font-size: 1.5rem;
+    padding: 0 15px 0 15px;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 900px) {
+    .textContainer{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .textContainer{
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .mainContainer .outerInfoContainer:nth-child(1){
+        justify-content: center;
+    }
+    .mainContainer .outerInfoContainer:nth-child(1), .mainContainer .outerInfoContainer:nth-child(3){
+        flex-direction: column;
+    }
+    .mainContainer .outerInfoContainer:nth-child(2), .mainContainer .outerInfoContainer:nth-child(4){
+        flex-direction: column-reverse;
+    }
+
+    .innerInfoContainer{
+        width: 100%;
+    }
+    
+    .textContainer{
+        height: 40%;
+    }
+    
+    .picContainer{
+        height: 60%;
+    }
+}
+
+@media screen and (max-height: 350px) {
+    .picContainer{
+        display: none;
+    }
+    
+    .textContainer{
+        height: 100%;
+        width: 100%;
+    }
+}
