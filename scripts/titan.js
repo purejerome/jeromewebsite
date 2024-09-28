@@ -1,8 +1,15 @@
-import * as THREE from "../node_modules/three";
-import { GLTFLoader } from "../node_modules/three/examples/jsm/loaders/GLTFLoader.js";
-import ScrollTrigger from "../node_modules/gsap/scrolltrigger";
-import gsap from "../node_modules/gsap";
-import { CustomEase } from "../node_modules/gsap/CustomEase";
+const splitDomain = window.location.pathname.split("/");
+let dots = "../node_modules/";
+if (splitDomain.includes("jeromewebsite")) {
+  console.log("in");
+  dots = "/jeromewebsite/node_modules/";
+}
+
+import * as THREE from `${dots}three`;
+import { GLTFLoader } from `${dots}three/examples/jsm/loaders/GLTFLoader.js`;
+import ScrollTrigger from `${dots}gsap/scrolltrigger`;
+import gsap from `${dots}gsap`;
+import { CustomEase } from `${dots}gsap/CustomEase`;
 
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
