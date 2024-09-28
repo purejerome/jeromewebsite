@@ -1,5 +1,5 @@
 const pageName = window.location.pathname.split("/")[1];
-let dots = "./";
+let dots = "";
 if (pageName != "index.html") {
   dots = "../";
 }
