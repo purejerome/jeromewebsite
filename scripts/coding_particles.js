@@ -1,4 +1,4 @@
-const imagePath = "/images/coding_logos/";
+const imagePath = "images/coding_logos/";
 const imageArray = [
   `${imagePath}html_icon.png`,
   `${imagePath}css_icon.png`,
