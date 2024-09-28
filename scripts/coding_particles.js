@@ -1,9 +1,14 @@
-const pageName = window.location.pathname.split("/")[-1];
-console.log(window.location.pathname);
+const splitDomain = window.location.pathname.split("/");
+const pageDomain = splitDomain.at(0);
+const pageName = splitDomain.at(-1);
+console.log(splitDomain);
+console.log(pageDomain);
+console.log(pageName);
 let dots = "/";
-if (pageName != "index.html") {
+if (pageName.length != 0 && pageName != "index.html") {
+  console.log("in1");
   dots = "../";
-} else if (window.location.pathname.includes("jeromewebsite")) {
+} else if (pageDomain.includes("jeromewebsite")) {
   console.log("in");
   dots = "/jeromewebsite/";
 } // << hey github pages i made changes man y
