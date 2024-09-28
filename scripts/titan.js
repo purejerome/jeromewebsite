@@ -7,9 +7,9 @@
 
 import * as THREE from "/jeromewebsite/node_modules/three/build/three.modules.js";
 import { GLTFLoader } from "/jeromewebsite/node_modules/three/examples/jsm/loaders/GLTFLoader.js";
-import ScrollTrigger from "/jeromewebsite/node_modules/gsap/ScrollTrigger.js";
-import gsap from "/jeromewebsite/node_modules/gsap/index.js";
-import { CustomEase } from "/jeromewebsite/node_modules/gsap/CustomEase.js";
+import ScrollTrigger from "/jeromewebsite/node_modules/gsap/dist/ScrollTrigger.min.js";
+import gsap from "/jeromewebsite/node_modules/gsap/dist/gsap.min.js";
+import { CustomEase } from "/jeromewebsite/node_modules/gsap/dist/CustomEase.min.js";
 
 // import * as THREE from "../node_modules/three";
 // import { GLTFLoader } from "../node_modules/three/examples/jsm/loaders/GLTFLoader.js";
@@ -17,13 +17,13 @@ import { CustomEase } from "/jeromewebsite/node_modules/gsap/CustomEase.js";
 // import gsap from "../node_modules/gsap";
 // import { CustomEase } from "../node_modules/gsap/CustomEase";
 
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.137.5/build/three.module.js";
-import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.137.5/examples/jsm/loaders/GLTFLoader.js";
+// import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.137.5/build/three.module.js";
+// import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.137.5/examples/jsm/loaders/GLTFLoader.js";
 
-// Importing GSAP and its plugins
-import gsap from "https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js";
-import { ScrollTrigger } from "https://cdn.jsdelivr.net/npm/gsap@3.9.1/ScrollTrigger.min.js";
-import { CustomEase } from "https://cdn.jsdelivr.net/npm/gsap@3.9.1/CustomEase.min.js";
+// // Importing GSAP and its plugins
+// import gsap from "https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js";
+// import { ScrollTrigger } from "https://cdn.jsdelivr.net/npm/gsap@3.9.1/ScrollTrigger.min.js";
+// import { CustomEase } from "https://cdn.jsdelivr.net/npm/gsap@3.9.1/CustomEase.min.js";
 
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
