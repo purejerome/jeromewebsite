@@ -5,7 +5,6 @@ if (pageName.length != 0 && pageName != "index.html") {
   console.log("in1");
   dots = "../";
 } else if (splitDomain.includes("jeromewebsite")) {
-  console.log("in");
   dots = "/jeromewebsite/";
 } // << hey github pages i made changes man y
 const imagePath = `${dots}images/coding_logos/`; // << hey lets changed ok??
