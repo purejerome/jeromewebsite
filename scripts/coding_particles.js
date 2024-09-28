@@ -1,4 +1,9 @@
-const imagePath = "/images/coding_logos/"; // << hey lets changed ok??
+const pageName = window.location.pathname.split("/")[1];
+let dots = "./";
+if (pageName != "index.html") {
+  dots = "../";
+}
+const imagePath = `${dots}images/coding_logos/`; // << hey lets changed ok??
 const imageArray = [
   `${imagePath}html_icon.png`,
   `${imagePath}css_icon.png`,
