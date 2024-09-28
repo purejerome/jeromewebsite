@@ -1,15 +1,21 @@
-const splitDomain = window.location.pathname.split("/");
-let dots = "../node_modules/";
-if (splitDomain.includes("jeromewebsite")) {
-  console.log("in");
-  dots = "/jeromewebsite/node_modules/";
-}
+// const splitDomain = window.location.pathname.split("/");
+// let dots = "../node_modules/";
+// if (splitDomain.includes("jeromewebsite")) {
+//   console.log("in");
+//   dots = "/jeromewebsite/node_modules/";
+// }
 
-import * as THREE from `${dots}three`;
-import { GLTFLoader } from `${dots}three/examples/jsm/loaders/GLTFLoader.js`;
-import ScrollTrigger from `${dots}gsap/scrolltrigger`;
-import gsap from `${dots}gsap`;
-import { CustomEase } from `${dots}gsap/CustomEase`;
+// import * as THREE from `${dots}three`;
+// import { GLTFLoader } from `${dots}three/examples/jsm/loaders/GLTFLoader.js`;
+// import ScrollTrigger from `${dots}gsap/scrolltrigger`;
+// import gsap from `${dots}gsap`;
+// import { CustomEase } from `${dots}gsap/CustomEase`;
+
+import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import ScrollTrigger from "gsap/scrolltrigger";
+import gsap from "gsap";
+import { CustomEase } from "gsap/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
