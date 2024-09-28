@@ -5,7 +5,7 @@ if (pageName != "index.html") {
   dots = "../";
 } else if (window.location.pathname.includes("jeromewensite")) {
   dots = "/jeromewebsite/";
-}
+} // << hey github pages i made changes man
 const imagePath = `${dots}images/coding_logos/`; // << hey lets changed ok??
 const imageArray = [
   `${imagePath}html_icon.png`,
