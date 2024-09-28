@@ -1,8 +1,10 @@
-const pageName = window.location.pathname.split("/")[1];
+const pageName = window.location.pathname.split("/")[-1];
 console.log(window.location.pathname);
-let dots = "";
+let dots = "/";
 if (pageName != "index.html") {
   dots = "../";
+} else if (window.location.pathname.includes("jeromewensite")) {
+  dots = "/jeromewebsite/";
 }
 const imagePath = `${dots}images/coding_logos/`; // << hey lets changed ok??
 const imageArray = [
