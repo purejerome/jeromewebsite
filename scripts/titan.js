@@ -1,8 +1,8 @@
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import ScrollTrigger from "gsap/scrolltrigger";
-import gsap from "gsap";
-import { CustomEase } from "gsap/CustomEase";
+import * as THREE from "../node_modules/three";
+import { GLTFLoader } from "../node_modules/three/examples/jsm/loaders/GLTFLoader.js";
+import ScrollTrigger from "../node_modules/gsap/scrolltrigger";
+import gsap from "../node_modules/gsap";
+import { CustomEase } from "../node_modules/gsap/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
