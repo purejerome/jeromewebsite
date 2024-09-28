@@ -1,7 +1,5 @@
 const splitDomain = window.location.pathname.split("/");
 const pageName = splitDomain.at(-1);
-console.log(splitDomain);
-console.log(pageName);
 let dots = "/";
 if (pageName.length != 0 && pageName != "index.html") {
   console.log("in1");
