@@ -55,6 +55,18 @@
     display: flex;
 }
 
+.infoWrapper a{
+    color: white;
+}
+
+.infoWrapper a:hover{
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.infoWrapper a:active{
+    color: rgba(255, 255, 255, 0.594);
+}
+
 .innerFullInfoContainer{
     min-height: 100vh;
     max-height: 100vh;
@@ -111,4 +123,28 @@
 .projIcon:active{
     scale: 0.9;
     opacity: 0.6;
+}
+
+
+@media screen and (max-width: 800px) {
+    .fullInfoContainer .infoWrapper:nth-child(even){
+        flex-direction: column;
+        align-items: center;
+        min-height: none;
+    }
+    .fullInfoContainer .infoWrapper:nth-child(odd){
+        flex-direction: column-reverse;
+        align-items: center;
+        min-height: none;
+    }
+    
+    .innerFullInfoContainer{
+        width: 100%;
+        min-height: 60vh;
+        max-height: 60vh;
+    }
+    
+    .imgContainer{
+        width: 90%;
+    }
 }
