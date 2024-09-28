@@ -11,13 +11,13 @@
 // import gsap from `${dots}gsap`;
 // import { CustomEase } from `${dots}gsap/CustomEase`;
 
+console.log(window.location.pathname);
+
 import * as THREE from "../node_modules/three";
 import { GLTFLoader } from "../node_modules/three/examples/jsm/loaders/GLTFLoader.js";
 import ScrollTrigger from "../node_modules/gsap/scrolltrigger";
 import gsap from "../node_modules/gsap";
 import { CustomEase } from "../node_modules/gsap/CustomEase";
-
-console.log(window.location.pathname);
 
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
