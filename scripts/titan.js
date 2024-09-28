@@ -5,18 +5,17 @@
 //   dots = "/jeromewebsite/node_modules/";
 // }
 
-import * as THREE from "/jeromewebsite/node_modules/three";
-import { GLTFLoader } from "/jeromewebsite/node_modules/three/examples/jsm/loaders/GLTFLoader.js";
-import ScrollTrigger from "/jeromewebsite/node_modules/gsap/scrolltrigger";
-import gsap from "/jeromewebsite/node_modules/gsap";
-import { CustomEase } from "/jeromewebsite/node_modules/gsap/CustomEase";
+// import * as THREE from "/jeromewebsite/node_modules/three";
+// import { GLTFLoader } from "/jeromewebsite/node_modules/three/examples/jsm/loaders/GLTFLoader.js";
+// import ScrollTrigger from "/jeromewebsite/node_modules/gsap/scrolltrigger";
+// import gsap from "/jeromewebsite/node_modules/gsap";
+// import { CustomEase } from "/jeromewebsite/node_modules/gsap/CustomEase";
 
-// console.log(window.location.pathname);
-// import * as THREE from "/node_modules/three";
-// import { GLTFLoader } from "../node_modules/three/examples/jsm/loaders/GLTFLoader.js";
-// import ScrollTrigger from "../node_modules/gsap/scrolltrigger";
-// import gsap from "../node_modules/gsap";
-// import { CustomEase } from "../node_modules/gsap/CustomEase";
+import * as THREE from "./node_modules/three";
+import { GLTFLoader } from "./node_modules/three/examples/jsm/loaders/GLTFLoader.js";
+import ScrollTrigger from "./node_modules/gsap/scrolltrigger";
+import gsap from "./node_modules/gsap";
+import { CustomEase } from "./node_modules/gsap/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
