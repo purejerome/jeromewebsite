@@ -3,7 +3,8 @@ console.log(window.location.pathname);
 let dots = "/";
 if (pageName != "index.html") {
   dots = "../";
-} else if (window.location.pathname.includes("jeromewensite")) {
+} else if (window.location.pathname.includes("jeromewebsite")) {
+  console.log("in");
   dots = "/jeromewebsite/";
 } // << hey github pages i made changes man
 const imagePath = `${dots}images/coding_logos/`; // << hey lets changed ok??
