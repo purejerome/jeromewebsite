@@ -5,11 +5,11 @@
 //   dots = "/jeromewebsite/node_modules/";
 // }
 
-import * as THREE from "/jeromewebsite/three";
-import { GLTFLoader } from "/jeromewebsite/three/examples/jsm/loaders/GLTFLoader.js";
-import ScrollTrigger from "/jeromewebsite/gsap/scrolltrigger";
-import gsap from "/jeromewebsite/gsap";
-import { CustomEase } from "/jeromewebsite/gsap/CustomEase";
+import * as THREE from "/jeromewebsite/node_modules/three";
+import { GLTFLoader } from "/jeromewebsite/node_modules/three/examples/jsm/loaders/GLTFLoader.js";
+import ScrollTrigger from "/jeromewebsite/node_modules/gsap/scrolltrigger";
+import gsap from "/jeromewebsite/node_modules/gsap";
+import { CustomEase } from "/jeromewebsite/node_modules/gsap/CustomEase";
 
 // console.log(window.location.pathname);
 // import * as THREE from "/node_modules/three";
