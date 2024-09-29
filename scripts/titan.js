@@ -1,8 +1,11 @@
-import * as THREE from "https://purejerome.github.io/jeromewebsite/node_modules/three";
-import { GLTFLoader } from "https://purejerome.github.io/jeromewebsite/node_modules/three/examples/jsm/loaders/GLTFLoader.js";
-import ScrollTrigger from "https://purejerome.github.io/jeromewebsite/node_modules/gsap/ScrollTrigger.js";
-import gsap from "https://purejerome.github.io/jeromewebsite/node_modules/gsap";
-import { CustomEase } from "https://purejerome.github.io/jeromewebsite/node_modules/gsap/CustomEase.js";
+import * as THREE from "../three.js-master/build/three.module.js";
+import { GLTFLoader } from "../three.js-master/examples/jsm/loaders/GLTFLoader.js";
+// import gsap from "../gsap-public/";
+// import gsap from "gsap";
+// import ScrollTrigger from "gsap/ScrollTrigger.js";
+// import { CustomEase } from "../node_modules/gsap/CustomEase.js";
+// import ScrollTrigger from "../node_modules/gsap/ScrollTrigger.js";
+// import { CustomEase } from "../jeromewebsite/node_modules/gsap/CustomEase.js";
 
 // import * as THREE from "../node_modules/three";
 // import { GLTFLoader } from "../node_modules/three/examples/jsm/loaders/GLTFLoader.js";
