@@ -13,8 +13,8 @@ import { GLTFLoader } from "../three.js-master/examples/jsm/loaders/GLTFLoader.j
 // import gsap from "../node_modules/gsap";
 // import { CustomEase } from "../node_modules/gsap/CustomEase.js";
 
-gsap.registerPlugin(CustomEase);
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(CustomEase);
+// gsap.registerPlugin(ScrollTrigger);
 console.log("we in baby");
 // Scene
 const scene = new THREE.Scene();
@@ -48,14 +48,14 @@ let titan;
 const gltfLoader = new GLTFLoader();
 
 let titanPos;
-let tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#bg",
-    scrub: 2,
-    start: "top top",
-    end: "bottom top",
-  },
-});
+// let tl = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: "#bg",
+//     scrub: 2,
+//     start: "top top",
+//     end: "bottom top",
+//   },
+// });
 let lookAT;
 
 gltfLoader.load(
@@ -73,30 +73,30 @@ gltfLoader.load(
     lookAT = titanPos;
     cam.lookAt(titanPos);
 
-    tl.to(titan.rotation, {
-      y: Math.PI * 2,
-      duration: 20,
-    })
-      .to(
-        cam.position,
-        {
-          y: cam.position.y + 30,
-          x: cam.position.x - 5,
-          duration: 20,
-        },
-        "<"
-      )
-      .to(
-        lookAT,
-        {
-          y: lookAT.y + 100,
-          duration: 20,
-          onUpdate: () => {
-            cam.lookAt(lookAT);
-          },
-        },
-        "<"
-      );
+    // tl.to(titan.rotation, {
+    //   y: Math.PI * 2,
+    //   duration: 20,
+    // })
+    //   .to(
+    //     cam.position,
+    //     {
+    //       y: cam.position.y + 30,
+    //       x: cam.position.x - 5,
+    //       duration: 20,
+    //     },
+    //     "<"
+    //   )
+    //   .to(
+    //     lookAT,
+    //     {
+    //       y: lookAT.y + 100,
+    //       duration: 20,
+    //       onUpdate: () => {
+    //         cam.lookAt(lookAT);
+    //       },
+    //     },
+    //     "<"
+    //   );
   },
   undefined,
   function (error) {
