@@ -105,14 +105,17 @@ function getPath(letter, height) {
   return pathData;
 }
 
+let isIOS = /iPad|iPhone|iPod|/.test(navigator.userAgent) && !window.MSStream;
+let adjustmentY = isIOS ? 10 : 0;
+
 rawLettersArray.forEach((letterSpan) => {
   let info = {};
   info.span = letterSpan;
   info.x = letterSpan.getBoundingClientRect().x;
   info.y =
     letterSpan.getBoundingClientRect().y -
-    document.querySelector(".creditSection").getBoundingClientRect().y -
-    window.scrollY;
+    document.querySelector(".creditSection").getBoundingClientRect().y +
+    adjustmentY;
   info.path = getPath(letterSpan.textContent, letterSpan.clientHeight);
   lettersArray.push(info);
 });
