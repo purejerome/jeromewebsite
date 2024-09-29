@@ -111,7 +111,8 @@ rawLettersArray.forEach((letterSpan) => {
   info.x = letterSpan.getBoundingClientRect().x;
   info.y =
     letterSpan.getBoundingClientRect().y -
-    document.querySelector(".creditSection").getBoundingClientRect().y;
+    document.querySelector(".creditSection").getBoundingClientRect().y -
+    window.scrollY;
   info.path = getPath(letterSpan.textContent, letterSpan.clientHeight);
   lettersArray.push(info);
 });
