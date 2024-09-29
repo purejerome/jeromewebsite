@@ -1,8 +1,7 @@
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import mouse_follow from "./mouse_follow";
-import reset_rotation from "./reset_rotation";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import mouse_follow from "./mouse_follow.js";
+import reset_rotation from "./reset_rotation.js";
 
 const canvas = document.querySelector("#me");
 const parent = canvas.parentElement;

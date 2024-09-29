@@ -1,9 +1,3 @@
-import gsap from "gsap";
-
-// gsap.ticker.autoSleep = false;
-// gsap.ticker.wake();
-// gsap.config({ autoSleep: false });
-
 // animate arrows
 const arrowTween = gsap.fromTo(
   ".arrow",

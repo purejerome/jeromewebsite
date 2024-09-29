@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import gsap from "gsap";
 
 let xOff = innerWidth > 800 ? 1.5 : 1;
 const canv = document.querySelector("#me");
