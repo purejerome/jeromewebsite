@@ -1,5 +1,5 @@
-import * as THREE from "../three.js-master/build/three.module.min.js";
-import { GLTFLoader } from "../three.js-master/examples/jsm/loaders/GLTFLoader.js";
+// import * as THREE from "../three.js-master/build/three.module.min.js";
+// import { GLTFLoader } from "../three.js-master/examples/jsm/loaders/GLTFLoader.js";
 // import gsap from "../gsap-public/";
 // import gsap from "gsap";
 // import ScrollTrigger from "gsap/ScrollTrigger.js";
@@ -21,6 +21,9 @@ import { GLTFLoader } from "../three.js-master/examples/jsm/loaders/GLTFLoader.j
 
 // gsap.registerPlugin(CustomEase);
 // gsap.registerPlugin(ScrollTrigger);
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
 console.log("we in baby");
 // Scene
 const scene = new THREE.Scene();
