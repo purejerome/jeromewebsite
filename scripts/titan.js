@@ -15,7 +15,7 @@ import { GLTFLoader } from "../three.js-master/examples/jsm/loaders/GLTFLoader.j
 
 gsap.registerPlugin(CustomEase);
 gsap.registerPlugin(ScrollTrigger);
-
+console.log("we in baby");
 // Scene
 const scene = new THREE.Scene();
 
@@ -61,6 +61,7 @@ let lookAT;
 gltfLoader.load(
   "models/titan/ColosalTitan.glb",
   (gltf) => {
+    console.log("really in");
     titan = gltf.scene;
     titan.scale.set(10, 10, 10);
     const titanBox = new THREE.Box3().setFromObject(titan); // Get bounding box of Titan model
