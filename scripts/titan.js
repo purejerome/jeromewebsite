@@ -68,7 +68,7 @@ let titanPos;
 let lookAT;
 
 gltfLoader.load(
-  "../models/titan/ColosalTitan.glb",
+  "./models/titan/ColosalTitan.glb",
   (gltf) => {
     // console.log("really in");
     titan = gltf.scene;
