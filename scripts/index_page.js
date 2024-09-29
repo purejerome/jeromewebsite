@@ -1,7 +1,3 @@
-import ScrollTrigger from "gsap/scrolltrigger";
-import gsap from "gsap";
-import anime from "animejs/lib/anime.es.js";
-
 const userAgent = navigator.userAgent;
 
 gsap.registerPlugin(ScrollTrigger);
