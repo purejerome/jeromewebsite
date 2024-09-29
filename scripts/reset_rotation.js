@@ -1,5 +1,3 @@
-import gsap from "gsap";
-
 function reset_rotaion(object, targetRotation) {
   gsap.to(object.rotation, {
     x: targetRotation.x,
