@@ -107,7 +107,8 @@ function getPath(letter, height) {
 
 let isIOS = /iPad|iPhone|iPod|/.test(navigator.userAgent) && !window.MSStream;
 let adjustmentY = isIOS ? 10 : 0;
-
+console.log(navigator.userAgent);
+console.log(isIOS);
 rawLettersArray.forEach((letterSpan) => {
   let info = {};
   info.span = letterSpan;
