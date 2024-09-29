@@ -1,5 +1,5 @@
-import * as THREE from "../three.js-master/build/three.module.min.js";
-import { GLTFLoader } from "../three.js-master/examples/jsm/loaders/GLTFLoader.js";
+import * as THREE from "/jeromewebsite/three.js-master/build/three.module.min.js";
+import { GLTFLoader } from "/jeromewebsite/three.js-master/examples/jsm/loaders/GLTFLoader.js";
 // import gsap from "../gsap-public/";
 // import gsap from "gsap";
 // import ScrollTrigger from "gsap/ScrollTrigger.js";
@@ -59,7 +59,7 @@ let titanPos;
 let lookAT;
 
 gltfLoader.load(
-  "../models/titan/ColosalTitan.glb",
+  "/jeromewebsite/models/titan/ColosalTitan.glb",
   (gltf) => {
     console.log("really in");
     titan = gltf.scene;
