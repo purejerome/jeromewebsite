@@ -24,7 +24,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-console.log("we in baby");
+console.log("this bug was annoying lol");
 // Scene
 const scene = new THREE.Scene();
 
@@ -40,7 +40,7 @@ cam.position.set(0.09521213829704991, 0.46850471403480043, 15.529081514766155);
 // Renderer
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
-  alpha: false,
+  alpha: true,
 });
 renderer.setPixelRatio(devicePixelRatio);
 renderer.setSize(innerWidth, innerHeight);
@@ -57,14 +57,14 @@ let titan;
 const gltfLoader = new GLTFLoader();
 
 let titanPos;
-// let tl = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: "#bg",
-//     scrub: 2,
-//     start: "top top",
-//     end: "bottom top",
-//   },
-// });
+let tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#bg",
+    scrub: 2,
+    start: "top top",
+    end: "bottom top",
+  },
+});
 let lookAT;
 
 gltfLoader.load(
@@ -82,30 +82,30 @@ gltfLoader.load(
     lookAT = titanPos;
     cam.lookAt(titanPos);
 
-    // tl.to(titan.rotation, {
-    //   y: Math.PI * 2,
-    //   duration: 20,
-    // })
-    //   .to(
-    //     cam.position,
-    //     {
-    //       y: cam.position.y + 30,
-    //       x: cam.position.x - 5,
-    //       duration: 20,
-    //     },
-    //     "<"
-    //   )
-    //   .to(
-    //     lookAT,
-    //     {
-    //       y: lookAT.y + 100,
-    //       duration: 20,
-    //       onUpdate: () => {
-    //         cam.lookAt(lookAT);
-    //       },
-    //     },
-    //     "<"
-    //   );
+    tl.to(titan.rotation, {
+      y: Math.PI * 2,
+      duration: 20,
+    })
+      .to(
+        cam.position,
+        {
+          y: cam.position.y + 30,
+          x: cam.position.x - 5,
+          duration: 20,
+        },
+        "<"
+      )
+      .to(
+        lookAT,
+        {
+          y: lookAT.y + 100,
+          duration: 20,
+          onUpdate: () => {
+            cam.lookAt(lookAT);
+          },
+        },
+        "<"
+      );
   },
   undefined,
   function (error) {
