@@ -31,7 +31,7 @@ cam.position.set(0.09521213829704991, 0.46850471403480043, 15.529081514766155);
 // Renderer
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
-  alpha: true,
+  alpha: false,
 });
 renderer.setPixelRatio(devicePixelRatio);
 renderer.setSize(innerWidth, innerHeight);
