@@ -60,7 +60,7 @@ mes.forEach((me) => meObserver.observe(me));
 
 // Creates animation to move SVG around letters
 
-const buffer = fetch("../fonts/Lato-Bold.ttf").then((res) => res.arrayBuffer());
+const buffer = fetch("./fonts/Lato-Bold.ttf").then((res) => res.arrayBuffer());
 
 let font = opentype.parse(await buffer);
 

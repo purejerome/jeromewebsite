@@ -1,4 +1,3 @@
-import gsap from "gsap";
 // drop down for nav
 const dropLinks = document.querySelectorAll(".dropLinks a");
 const dropLinksDividers = document.querySelectorAll(".dropLinks hr");
