@@ -106,8 +106,10 @@ function getPath(letter, height) {
 }
 
 // let isIOS = /iPad|iPhone|iPod|/.test(navigator.userAgent) && !window.MSStream;
-let isIOS = navigator.userAgent.toLowerCase().indexOf("iphone") != -1;
-let adjustmentY = isIOS ? -100 : 0;
+let isIOS =
+  navigator.userAgent.toLowerCase().indexOf("iphone") != -1 ||
+  navigator.userAgent.toLowerCase().indexOf("ipad") != -1;
+let adjustmentY = isIOS ? -500 : 0;
 
 console.log(navigator.userAgent.toLowerCase());
 console.log(isIOS);
@@ -122,6 +124,12 @@ rawLettersArray.forEach((letterSpan) => {
     adjustmentY;
   info.path = getPath(letterSpan.textContent, letterSpan.clientHeight);
   lettersArray.push(info);
+  console.log(
+    "before: " +
+      (letterSpan.getBoundingClientRect().y -
+        document.querySelector(".creditSection").getBoundingClientRect().y)
+  );
+  console.log("now: " + info.y);
 });
 
 function getRandomColor() {
