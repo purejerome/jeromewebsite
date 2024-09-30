@@ -109,7 +109,7 @@ function getPath(letter, height) {
 let isIOS =
   navigator.userAgent.toLowerCase().indexOf("iphone") != -1 ||
   navigator.userAgent.toLowerCase().indexOf("ipad") != -1;
-let adjustmentY = isIOS ? -500 : 0;
+let adjustmentY = isIOS ? 500 : 0;
 
 console.log(navigator.userAgent.toLowerCase());
 console.log(isIOS);
