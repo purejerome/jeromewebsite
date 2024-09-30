@@ -105,8 +105,10 @@ function getPath(letter, height) {
   return pathData;
 }
 
-let isIOS = /iPad|iPhone|iPod|/.test(navigator.userAgent) && !window.MSStream;
+// let isIOS = /iPad|iPhone|iPod|/.test(navigator.userAgent) && !window.MSStream;
+let isIOS = navigator.userAgent.toLowerCase().indexOf("iphone") != -1;
 let adjustmentY = isIOS ? 100 : 0;
+
 console.log(navigator.userAgent);
 console.log(isIOS);
 console.log(adjustmentY);
