@@ -107,9 +107,9 @@ function getPath(letter, height) {
 
 // let isIOS = /iPad|iPhone|iPod|/.test(navigator.userAgent) && !window.MSStream;
 let isIOS = navigator.userAgent.toLowerCase().indexOf("iphone") != -1;
-let adjustmentY = isIOS ? 100 : 0;
+let adjustmentY = isIOS ? -100 : 0;
 
-console.log(navigator.userAgent);
+console.log(navigator.userAgent.toLowerCase());
 console.log(isIOS);
 console.log(adjustmentY);
 rawLettersArray.forEach((letterSpan) => {
