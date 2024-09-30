@@ -90,7 +90,7 @@ console.log(isIOS);
 
 function setOffset() {
   if (isIOS) {
-    return 9;
+    return 12;
   }
   if (creditFontSize == "59.2px") {
     return 12.5;
