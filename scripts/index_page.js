@@ -62,6 +62,10 @@ mes.forEach((me) => meObserver.observe(me));
 
 const buffer = fetch("./fonts/Lato-Bold.ttf").then((res) => res.arrayBuffer());
 
+let isIOS =
+  navigator.userAgent.toLowerCase().indexOf("iphone") != -1 ||
+  navigator.userAgent.toLowerCase().indexOf("ipad") != -1;
+
 let font = opentype.parse(await buffer);
 
 let lettersArray = [];
@@ -81,7 +85,13 @@ let oldLetterIndex = -1;
 let intervalID;
 const tl = gsap.timeline({ defaults: { duration: 1 } });
 
+console.log(navigator.userAgent.toLowerCase());
+console.log(isIOS);
+
 function setOffset() {
+  if (isIOS) {
+    return 60;
+  }
   if (creditFontSize == "59.2px") {
     return 12.5;
   } else if (creditFontSize == "128px") {
@@ -102,34 +112,19 @@ function getPath(letter, height) {
       .getPath(text, letterOffsetWidth, height - letterOffset - 0.5, fontSize)
       .toPathData(2);
   }
+  console.log(pathData);
   return pathData;
 }
 
-// let isIOS = /iPad|iPhone|iPod|/.test(navigator.userAgent) && !window.MSStream;
-let isIOS =
-  navigator.userAgent.toLowerCase().indexOf("iphone") != -1 ||
-  navigator.userAgent.toLowerCase().indexOf("ipad") != -1;
-let adjustmentY = isIOS ? 500 : 0;
-
-console.log(navigator.userAgent.toLowerCase());
-console.log(isIOS);
-console.log(adjustmentY);
 rawLettersArray.forEach((letterSpan) => {
   let info = {};
   info.span = letterSpan;
   info.x = letterSpan.getBoundingClientRect().x;
   info.y =
     letterSpan.getBoundingClientRect().y -
-    document.querySelector(".creditSection").getBoundingClientRect().y +
-    adjustmentY;
+    document.querySelector(".creditSection").getBoundingClientRect().y;
   info.path = getPath(letterSpan.textContent, letterSpan.clientHeight);
   lettersArray.push(info);
-  console.log(
-    "before: " +
-      (letterSpan.getBoundingClientRect().y -
-        document.querySelector(".creditSection").getBoundingClientRect().y)
-  );
-  console.log("now: " + info.y);
 });
 
 function getRandomColor() {
