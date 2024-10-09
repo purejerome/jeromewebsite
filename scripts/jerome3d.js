@@ -50,6 +50,9 @@ gltfLoader.load(
   (gltf) => {
     jerome = gltf.scene;
     jerome.scale.set(10, 10, 10);
+    if (window.innerWidth > 2000) {
+      jerome.scale.set(5, 5, 5);
+    }
     scene.add(jerome);
     const initialRotation = jerome.rotation.clone();
     mouse_follow(jerome, cam);
@@ -69,3 +72,11 @@ function animate() {
 }
 
 animate();
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 2000) {
+    jerome.scale.set(5, 5, 5);
+  } else {
+    jerome.scale.set(10, 10, 10);
+  }
+});

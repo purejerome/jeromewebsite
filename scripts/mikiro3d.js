@@ -44,6 +44,9 @@ gltfLoader.load(
   "../models/mikiro/mikiro_model.glb",
   (gltf) => {
     mikiro = gltf.scene;
+    if (window.innerWidth > 2000) {
+      mikiro.scale.set(0.7, 0.7, 0.7);
+    }
     scene.add(mikiro);
     mikiro.position.y = -100;
     mikiro.position.x = -50;
@@ -69,3 +72,10 @@ function animate() {
 }
 
 animate();
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 2000) {
+    mikiro.scale.set(0.7, 0.7, 0.7);
+  } else {
+    mikiro.scale.set(1, 1, 1);
+  }
+});
