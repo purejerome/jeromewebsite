@@ -44,6 +44,9 @@ gltfLoader.load(
   (gltf) => {
     JMU = gltf.scene;
     JMU.scale.set(0.2, 0.2, 0.2);
+    if (window.innerWidth > 2000) {
+      JMU.scale.set(0.1, 0.1, 0.1);
+    }
     scene.add(JMU);
     cam.lookAt(JMU.position);
   },
@@ -62,3 +65,11 @@ function animate() {
 }
 
 animate();
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 2000) {
+    JMU.scale.set(0.1, 0.1, 0.1);
+  } else {
+    JMU.scale.set(0.2, 0.2, 0.2);
+  }
+});

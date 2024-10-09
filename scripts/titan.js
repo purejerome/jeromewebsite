@@ -23,17 +23,26 @@ renderer.setPixelRatio(devicePixelRatio);
 renderer.setSize(innerWidth, innerHeight);
 
 // Handle window resize
+let titanPos;
+let tTop;
 window.addEventListener("resize", () => {
   renderer.setSize(innerWidth, innerHeight);
   cam.aspect = innerWidth / innerHeight;
   cam.updateProjectionMatrix();
+
+  if (window.innerWidth > 2000) {
+    titan.scale.set(5, 5, 5);
+    titanPos.y = tTop - 13;
+  } else {
+    titan.scale.set(10, 10, 10);
+    titanPos.y = tTop - 10;
+  }
 });
 
 let titan;
 
 const gltfLoader = new GLTFLoader();
 
-let titanPos;
 let tl = gsap.timeline({
   scrollTrigger: {
     trigger: "#bg",
@@ -52,9 +61,14 @@ gltfLoader.load(
     titan.scale.set(10, 10, 10);
     const titanBox = new THREE.Box3().setFromObject(titan); // Get bounding box of Titan model
     const titanTop = titanBox.max.y;
+    tTop = titanTop;
     titanPos = new THREE.Vector3();
     titanPos.copy(titan.position);
     titanPos.y = titanTop - 10;
+    if (window.innerWidth > 2000) {
+      titan.scale.set(6, 6, 6);
+      titanPos.y = titanTop - 13;
+    }
     scene.add(titan);
     lookAT = titanPos;
     cam.lookAt(titanPos);

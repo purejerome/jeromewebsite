@@ -43,6 +43,9 @@ gltfLoader.load(
   (gltf) => {
     HTML = gltf.scene;
     HTML.scale.set(0.38, 0.38, 0.38);
+    if (window.innerWidth > 2000) {
+      HTML.scale.set(0.2, 0.2, 0.2);
+    }
     scene.add(HTML);
     cam.lookAt(HTML.position);
   },
@@ -74,3 +77,11 @@ function animate() {
 }
 
 animate();
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 2000) {
+    HTML.scale.set(0.2, 0.2, 0.2);
+  } else {
+    HTML.scale.set(0.38, 0.38, 0.38);
+  }
+});

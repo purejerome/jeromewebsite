@@ -85,9 +85,6 @@ let oldLetterIndex = -1;
 let intervalID;
 const tl = gsap.timeline({ defaults: { duration: 1 } });
 
-console.log(navigator.userAgent.toLowerCase());
-console.log(isIOS);
-
 function setOffset() {
   if (isIOS) {
     return 12.5;
@@ -112,7 +109,6 @@ function getPath(letter, height) {
       .getPath(text, letterOffsetWidth, height - letterOffset - 0.5, fontSize)
       .toPathData(2);
   }
-  console.log(pathData);
   return pathData;
 }
 

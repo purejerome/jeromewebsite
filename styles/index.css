@@ -55,6 +55,7 @@
 
 .creditSection{
     position: relative;
+    justify-content: center;
 }
 
 #outersvg{
