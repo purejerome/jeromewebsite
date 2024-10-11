@@ -115,12 +115,11 @@ const workButtonData = [
         textContent:
           "The main parts of the project I worked on were the custom help page, about page, the button logic, as well as" +
           "  the logic for multiplcation, exponents, simplification, decimals, and some of the custom settings." +
-          " We worked in an agile enviornment, having scrum meetings every week to show our progress, and discuss our next moves. " +
-          " The download link for the jar files can be found below.",
-        link: "../misc/united.jar",
-        linkTitle: "UnitED Jar File",
-        downloadable: true,
-        downloadTitle: "UnitED.jar",
+          " We worked in an agile enviornment, having scrum meetings every week to show our progress, and discuss our next moves. ",
+        // link: "../misc/united.jar",
+        // linkTitle: "UnitED Jar File",
+        // downloadable: true,
+        // downloadTitle: "UnitED.jar",
       },
       {
         mediaType: "video",
