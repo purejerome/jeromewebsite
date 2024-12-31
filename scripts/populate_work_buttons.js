@@ -21,6 +21,24 @@ textWrap.classList.add("innerFullInfoContainer");
 textWrap.classList.add("textContainer");
 textWrap.appendChild(p);
 
+function debounce(func, wait) {
+  let timeout;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
+  };
+}
+
+const icons = document.querySelectorAll(".projIcon");
+icons.forEach((icon) => {
+  icon.addEventListener("mouseover", handleEnter);
+  icon.addEventListener("mousemove", debounce(handleIconHover, 6));
+  icon.addEventListener("mouseleave", handleLeave);
+});
+console.log(icons);
+
 let tm;
 
 // to do, make it so text content is an array, and you add paragraphs based on that,
@@ -201,3 +219,48 @@ workButtonData.forEach((data) => {
     populateInfo(data);
   });
 });
+
+function handleIconHover(event) {
+  const icon = event.target;
+  const shadow = icon.querySelector(".shadow");
+  icon.style.transition =
+    "scale 0.1s ease-in-out, opacity 0.1s linear, transform 0.05s ease-out";
+  const { clientX: mouseX, clientY: mouseY } = event;
+  const { left, top, width, height } = icon.getBoundingClientRect();
+
+  const centerX = left + width / 2;
+  const centerY = top + height / 2;
+
+  const deltaX = mouseX - centerX;
+  const deltaY = mouseY - centerY;
+  const rotateX = (deltaY / height) * 40;
+  const rotateY = (deltaX / width) * -40;
+
+  debounce(() => {
+    shadow.style.left = `${mouseX - left - shadow.offsetWidth / 2}px`;
+    shadow.style.top = `${mouseY - top - shadow.offsetHeight / 2}px`;
+    shadow.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  }, 2)();
+
+  icon.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+}
+
+function handleEnter(event) {
+  const icon = event.target;
+  const shadow = icon.querySelector(".shadow");
+  shadow.style.opacity = "1";
+  shadow.style.visibility = "visible";
+}
+
+function handleLeave(event) {
+  const icon = event.target;
+  const shadow = icon.querySelector(".shadow");
+  setTimeout(() => {
+    icon.style.transition =
+      "scale 0.1s ease-in-out, opacity 0.1s linear, transform 0.3s ease-out";
+    icon.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
+    shadow.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
+    shadow.style.opacity = "0";
+    shadow.style.visibility = "hidden";
+  }, 130);
+}

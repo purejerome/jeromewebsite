@@ -108,12 +108,31 @@
 .projIcon{
     border-radius: 50px;
     cursor: pointer;
+    /* perspective: 1px; */
     transition: 
         scale 0.1s ease-in-out,
-        opacity 0.1s linear
+        opacity 0.1s linear,
+        transform 0.05s ease-out
     ;
     background-position: center;
     background-size: cover;
+    overflow: hidden;
+}
+
+.shadow{
+    transition: 
+        transform 0.05s ease-out,
+        opacity 0.3s ease-out,
+        visibility 0.3s ease-out
+    ;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+background: radial-gradient(circle, rgba(0,0,0,0.7345063025210083) 2%, rgba(0,0,0,0.4908088235294118) 28%, rgba(130,149,211,0) 63%);
+    pointer-events: none;
 }
 
 .projIcon:hover{
