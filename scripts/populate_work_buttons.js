@@ -37,18 +37,13 @@ const workButtonData = [
         mediaType: "image",
         media: `${imageButPath}MusicCPR${imageEnding}`,
         textContent:
-          "MusicCPR is a research project I volunteered on with my professor Michael Stewart." +
-          " The site was made to help music professors effectively teach their classes, and research which methods best improve quality of learning with students." +
-          " I worked a front end web developer and helped improve the look and funcionality of the site.",
+          "MusicCPR is a research project I volunteered on with my professor, Michael Stewart. The site was made to help music professors effectively teach their classes and research which methods best improve the quality of learning with students. I worked as a front-end web developer and helped improve the look and functionality of the site.",
       },
       {
         mediaType: "video",
         media: `${videoPath}aboutpage.mp4`,
         textContent:
-          "Specifically, I worked on things such as adding wave forms to audio submissions" +
-          " improving the look of the landing page, as well as the about page, adding a carousel for the contributers," +
-          " and using eslint to fix style errors and bugs found in the code." +
-          " My branch of the repository can be found in the link below, and the offical site can be found on my GitHub page",
+          "Specifically, I worked on things such as adding waveforms to audio submissions, improving the look of the landing page as well as the about page, adding a carousel for the contributors, and using ESLint to fix style errors and bugs found in the code. My repository branch can be found at the link below, and the official site can be found on my GitHub page.",
         link: "https://github.com/Lab-Lab-Lab/CPR-Music-purejerome",
         linkTitle: "My MusicCPR work",
         downloadable: false,
@@ -74,22 +69,19 @@ const workButtonData = [
         mediaType: "video",
         media: `${videoPath}SHOWSCOPEshort.mp4`,
         textContent:
-          "SHOWSCOPE is a group project I worked on in my CS 343(Application Development) class." +
-          " We wanted to make a website to explore popular shows, movies, and anime for the user to explore and rate. ",
+          "SHOWSCOPE is a group project I worked on in my CS 343 (Application Development) class. We wanted to make a website to explore popular shows, movies, and anime for the user to explore and rate.",
       },
       {
         mediaType: "video",
         media: `${videoPath}SHOWSCOPElanding.mp4`,
         textContent:
-          "In this project, I worked on the landing page and its carousel, the API's to display the top anime and movies," +
-          " the JSON functionality of reviews on the profile page, and the about page.",
+          "In this project, I worked on the landing page and its carousel, the APIs to display the top anime and movies, the JSON functionality of reviews on the profile page, and the about page.",
       },
       {
         mediaType: "video",
         media: `${videoPath}SHOWSCOPEprofile.mp4`,
         textContent:
-          "Below is a link to the page where you can visit and play around with it yourself." +
-          " The most impressive part in my opinion is adding and changing the reviews, as well as having them save each visit.",
+          "Below is a link to the page where you can visit and play around with it yourself. The most impressive part, in my opinion, is adding and changing the reviews, as well as having them save each visit.",
         link: "https://343s24.github.io/final-project-nick-jerome-nicky/index.html",
         linkTitle: "SHOWSCOPE",
         downloadable: false,
@@ -105,26 +97,18 @@ const workButtonData = [
         mediaType: "image",
         media: `${imageContPath}unitedthumb.png`,
         textContent:
-          "UnitED was a group project I worked on in my CS 345(Software Development) class." +
-          " We were tasked to build a calculator that could not only perform caluclations, but save a history of them," +
-          " and print as well, as well as creating custom settings, work with units and custom units, and a custom help page for the calculator.",
+          "UnitED was a group project I worked on in my CS 345 (Software Development) class. We were tasked to build a calculator that could not only perform calculations but also save a history of them and print as well, as well as create custom settings, work with units and custom units, and have a custom help page for the calculator.",
       },
       {
         mediaType: "video",
         media: `${videoPath}calchelp.mp4`,
         textContent:
-          "The main parts of the project I worked on were the custom help page, about page, the button logic, as well as" +
-          "  the logic for multiplcation, exponents, simplification, decimals, and some of the custom settings." +
-          " We worked in an agile enviornment, having scrum meetings every week to show our progress, and discuss our next moves. ",
-        // link: "../misc/united.jar",
-        // linkTitle: "UnitED Jar File",
-        // downloadable: true,
-        // downloadTitle: "UnitED.jar",
+          "The main parts of the project I worked on were the custom help page, the about page, the button logic, as well as the logic for multiplication, exponents, simplification, decimals, and some of the custom settings. We worked in an agile environment, having scrum meetings every week to show our progress and discuss our next moves.",
       },
       {
         mediaType: "video",
         media: `${videoPath}calcdemo.mp4`,
-        textContent: "Here is most of the other features of the calculator!",
+        textContent: "Here are most of the other features of the calculator!",
       },
     ],
   },
@@ -137,9 +121,7 @@ const workButtonData = [
         mediaType: "image",
         media: `${imageButPath}Y86${imageEnding}`,
         textContent:
-          "This project was made in my CS 261(Computer Systems I) class which was split into four cumulitve parts over the whole semester." +
-          " We basically simluated everything that had to do with the Y86 architecture, which include memory," +
-          " the instruction set, the CPU and much more. Below is a link to download the source code for part four of the porject.",
+          "This project was made in my CS 261 (Computer Systems I) class, which was split into four cumulative parts over the whole semester. We basically simulated everything that had to do with the Y86 architecture, which included memory, the instruction set, the CPU, and much more. Below is a link to download the source code for part four of the project.",
         link: "../misc/CS261PROJ.zip",
         linkTitle: "CS 261 PROJECT",
         downloadable: true,
