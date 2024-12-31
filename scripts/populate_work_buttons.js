@@ -236,11 +236,9 @@ function handleIconHover(event) {
   const rotateX = (deltaY / height) * 40;
   const rotateY = (deltaX / width) * -40;
 
-  debounce(() => {
-    shadow.style.left = `${mouseX - left - shadow.offsetWidth / 2}px`;
-    shadow.style.top = `${mouseY - top - shadow.offsetHeight / 2}px`;
-    shadow.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  }, 2)();
+  shadow.style.left = `${mouseX - left - shadow.offsetWidth / 2}px`;
+  shadow.style.top = `${mouseY - top - shadow.offsetHeight / 2}px`;
+  shadow.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
   icon.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 }
@@ -248,13 +246,17 @@ function handleIconHover(event) {
 function handleEnter(event) {
   const icon = event.target;
   const shadow = icon.querySelector(".shadow");
+  const overlay = icon.querySelector(".overlay");
   shadow.style.opacity = "1";
   shadow.style.visibility = "visible";
+  overlay.style.opacity = "1";
+  overlay.style.visibility = "visible";
 }
 
 function handleLeave(event) {
   const icon = event.target;
   const shadow = icon.querySelector(".shadow");
+  const overlay = icon.querySelector(".overlay");
   setTimeout(() => {
     icon.style.transition =
       "scale 0.1s ease-in-out, opacity 0.1s linear, transform 0.3s ease-out";
@@ -262,5 +264,7 @@ function handleLeave(event) {
     shadow.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
     shadow.style.opacity = "0";
     shadow.style.visibility = "hidden";
+    overlay.style.opacity = "0";
+    overlay.style.visibility = "hidden";
   }, 130);
 }
