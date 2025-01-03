@@ -1,5 +1,7 @@
 .mainContainer{
     max-width: 1500px;
+    align-items: flex-start;
+    overflow: hidden;
 }
 
 .visible{
@@ -15,11 +17,13 @@
 }
 
 .fullInfoContainer{
+    position: absolute;
     background-color: rgba(37, 37, 37, 0.507);
     backdrop-filter: blur(3px) saturate(110%);
     max-height: 100vh;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 4;
     width: 100%;
     overflow-y: auto;
@@ -97,25 +101,32 @@
 .projContainer{
     width: 100%;
     flex-grow: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-auto-rows: 250px;
-    gap: 20px;
-    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     box-sizing: border-box;
 }
 
 .projIcon{
+    position: absolute;
+    transform-origin: center;
+    width: 50%;
+    height: 80%;
     border-radius: 50px;
     cursor: pointer;
     transition: 
         scale 0.1s ease-in-out,
         opacity 0.1s linear,
-        transform 0.05s ease-out
     ;
     background-position: center;
     background-size: cover;
     overflow: hidden;
+    z-index: 1;
+}
+
+.activeIcon{
+    z-index: 2;
+    /* right: 75%; */
 }
 
 .overlay{
@@ -146,12 +157,8 @@ background: radial-gradient(circle, rgba(0,0,0,0.7345063025210083) 2%, rgba(0,0,
     pointer-events: none;
 }
 
-.projIcon:hover{
-    scale: 1.05;
-}
 
 .projIcon:active{
-    scale: 0.9;
     opacity: 0.6;
 }
 
@@ -176,5 +183,14 @@ background: radial-gradient(circle, rgba(0,0,0,0.7345063025210083) 2%, rgba(0,0,
     
     .imgContainer{
         width: 90%;
+    }
+    
+    .projContainer{
+        justify-content: center;
+    }
+    
+    .projIcon{
+        width: 80%;
+        height: 50%;
     }
 }

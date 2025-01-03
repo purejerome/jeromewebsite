@@ -1,4 +1,5 @@
 //add buttons on screen
+gsap.registerPlugin(ScrollTrigger);
 const fullInfoContainer = document.querySelector(".fullInfoContainer");
 const imagePath = "../images/";
 const imageButPath = `${imagePath}button_images/`;
@@ -37,7 +38,6 @@ icons.forEach((icon) => {
   icon.addEventListener("mousemove", debounce(handleIconHover, 6));
   icon.addEventListener("mouseleave", handleLeave);
 });
-console.log(icons);
 
 let tm;
 
@@ -220,13 +220,22 @@ workButtonData.forEach((data) => {
   });
 });
 
+let h_x = 0;
+let h_y = 0;
+
 function handleIconHover(event) {
   const icon = event.target;
   const shadow = icon.querySelector(".shadow");
-  icon.style.transition =
-    "scale 0.1s ease-in-out, opacity 0.1s linear, transform 0.05s ease-out";
   const { clientX: mouseX, clientY: mouseY } = event;
   const { left, top, width, height } = icon.getBoundingClientRect();
+  let comp = window.getComputedStyle(icon);
+  const matrix =
+    comp.getPropertyValue("transform") || "matrix32(1, 0, 0, 0, 0, 1)";
+  const scale_values = matrix
+    .match(/[matrix3d, matrix]\((.+)\)/)[1]
+    .split(", ");
+  const scale_x = scale_values[0];
+  const scale_y = scale_values[5];
 
   const centerX = left + width / 2;
   const centerY = top + height / 2;
@@ -235,16 +244,17 @@ function handleIconHover(event) {
   const deltaY = mouseY - centerY;
   const rotateX = (deltaY / height) * 40;
   const rotateY = (deltaX / width) * -40;
-
-  shadow.style.left = `${mouseX - left - shadow.offsetWidth / 2}px`;
-  shadow.style.top = `${mouseY - top - shadow.offsetHeight / 2}px`;
+  shadow.style.left = `${(mouseX - left - shadow.offsetWidth / 2) / scale_x}px`;
+  shadow.style.top = `${(mouseY - top - shadow.offsetHeight / 2) / scale_y}px`;
   shadow.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-  icon.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  h_x = rotateX;
+  h_y = rotateY;
 }
 
 function handleEnter(event) {
   const icon = event.target;
+  icon.classList.add("hovering");
   const shadow = icon.querySelector(".shadow");
   const overlay = icon.querySelector(".overlay");
   shadow.style.opacity = "1";
@@ -255,16 +265,195 @@ function handleEnter(event) {
 
 function handleLeave(event) {
   const icon = event.target;
+  icon.classList.remove("hovering");
   const shadow = icon.querySelector(".shadow");
   const overlay = icon.querySelector(".overlay");
+
+  shadow.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
+  shadow.style.opacity = "0";
+  shadow.style.visibility = "hidden";
+  overlay.style.opacity = "0";
+  overlay.style.visibility = "hidden";
+}
+
+//icon scrolling
+let hor_scroll = window.innerWidth > 800;
+let proj_container = document.querySelector(".projContainer");
+let container_dim = hor_scroll
+  ? proj_container.clientWidth
+  : proj_container.clientHeight;
+let icon_dim = hor_scroll ? icons[0].clientWidth : icons[0].clientHeight * 2;
+let total_dim = icons.length * icon_dim;
+
+let cur_scroll_pos = 0;
+let last_scroll_pos = 0;
+let smooth_scroll = 0;
+
+const lin_interp = (start, end, factor) => start * (1 - factor) + end * factor;
+
+const adjustIcons = (scroll) => {
+  let main_dir = hor_scroll ? "x" : "y";
+  gsap.set(icons, {
+    [main_dir]: (index) => index * icon_dim + scroll,
+    modifiers: {
+      [main_dir]: (dir) => {
+        const wrapped_dir = gsap.utils.wrap(
+          -icon_dim,
+          total_dim - icon_dim,
+          parseInt(dir)
+        );
+        return `${wrapped_dir}px`;
+      },
+    },
+  });
+};
+adjustIcons(0);
+
+const onWheelScroll = (event) => {
+  if (hor_scroll) {
+    cur_scroll_pos -= event.deltaX;
+  } else {
+    cur_scroll_pos -= event.deltaY;
+  }
+};
+
+let startPos = 0;
+let cur_pos = 0;
+let isDragging = false;
+
+const onDragStart = (event) => {
+  if (hor_scroll) {
+    startPos = event.clientX || event.touches[0].clientX;
+  } else {
+    startPos = event.clientY || event.touches[0].clientY;
+  }
+  isDragging = true;
+  proj_container.classList.add("is_dragging");
+};
+
+const onDragMove = (event) => {
+  if (!isDragging) return;
+  if (hor_scroll) {
+    cur_pos = event.clientX || event.touches[0].clientX;
+  } else {
+    cur_pos = event.clientY || event.touches[0].clientY;
+  }
+  cur_scroll_pos += (cur_pos - startPos) * 3;
+  startPos = cur_pos;
+};
+const onDragEnd = () => {
+  isDragging = false;
+  proj_container.classList.remove("is_dragging");
+};
+
+let count = 0;
+let lastCall = 0;
+const throttleTime = 40;
+let cache = [];
+
+const animate = () => {
+  smooth_scroll = lin_interp(smooth_scroll, cur_scroll_pos, 0.1);
+  adjustIcons(smooth_scroll);
+
+  const scroll_speed = smooth_scroll - last_scroll_pos;
+  last_scroll_pos = smooth_scroll;
+  let currentTime = performance.now();
+  if (currentTime - lastCall > throttleTime) {
+    lastCall = currentTime;
+    gsap.to(icons, {
+      scale: (index) => {
+        let rect = icons[index].getBoundingClientRect();
+        let dis_from_center = Math.abs(
+          parseInt(rect.x + rect.width / 2 - window.innerWidth / 2)
+        );
+        let scale_val = 1 - dis_from_center / window.innerWidth;
+        cache[index] = scale_val;
+        if (index == 1) {
+        }
+        return cache[index] || 1;
+      },
+      rotation: (index) => {
+        return !icons[index].classList.contains("hovering")
+          ? scroll_speed * 0.2
+          : 0;
+      },
+      rotationX: (index) => {
+        return icons[index].classList.contains("hovering") ? h_x : 0;
+      },
+      rotationY: (index) => {
+        return icons[index].classList.contains("hovering") ? h_y : 0;
+      },
+    });
+  }
+  requestAnimationFrame(animate);
+};
+
+animate();
+
+proj_container.addEventListener("mousewheel", onWheelScroll);
+proj_container.addEventListener("touchstart", onDragStart);
+proj_container.addEventListener("touchmove", onDragMove);
+proj_container.addEventListener("touchend", onDragEnd);
+proj_container.addEventListener("mousedown", onDragStart);
+proj_container.addEventListener("mousemove", onDragMove);
+proj_container.addEventListener("mouseleave", onDragEnd);
+proj_container.addEventListener("mouseup", onDragEnd);
+proj_container.addEventListener("selectstart", () => false);
+proj_container.addEventListener("mousewheel", handleScrollLeave);
+proj_container.addEventListener("scroll", handleScrollLeave);
+
+function handleScrollLeave(event) {
+  icons.forEach((icon) => {
+    icon.style.pointerEvents = "none";
+  });
+  icons.forEach((icon, index) => {
+    if (icon.classList.contains("hovering")) {
+      let { left, top, width, height } = icon.getBoundingClientRect();
+      let del_x = event.clientX;
+      let del_y = event.clientY;
+      if (
+        del_x < left ||
+        del_x > left + width ||
+        del_y < top ||
+        del_y > top + height
+      ) {
+        icon.classList.remove("hovering");
+        const shadow = icon.querySelector(".shadow");
+        const overlay = icon.querySelector(".overlay");
+        setTimeout(() => {
+          shadow.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
+          shadow.style.opacity = "0";
+          shadow.style.visibility = "hidden";
+          overlay.style.opacity = "0";
+          overlay.style.visibility = "hidden";
+        }, 130);
+      }
+    }
+  });
   setTimeout(() => {
-    icon.style.transition =
-      "scale 0.1s ease-in-out, opacity 0.1s linear, transform 0.3s ease-out";
-    icon.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
-    shadow.style.transform = `rotateX(${0}deg) rotateY(${0}deg)`;
-    shadow.style.opacity = "0";
-    shadow.style.visibility = "hidden";
-    overlay.style.opacity = "0";
-    overlay.style.visibility = "hidden";
+    icons.forEach((icon) => {
+      icon.style.pointerEvents = "auto";
+    });
   }, 130);
 }
+
+window.addEventListener("resize", () => {
+  let old_hor_scroll = hor_scroll;
+  if (window.innerWidth > 800) {
+    hor_scroll = true;
+    icon_dim = icons[0].clientWidth;
+    container_dim = proj_container.clientWidth;
+  } else {
+    hor_scroll = false;
+    icon_dim = icons[0].clientHeight * 2;
+    container_dim = proj_container.clientHeight;
+  }
+  if (old_hor_scroll != hor_scroll) {
+    gsap.set(icons, {
+      x: 0,
+      y: 0,
+    });
+  }
+  total_dim = icons.length * icon_dim;
+  adjustIcons(0);
+});
