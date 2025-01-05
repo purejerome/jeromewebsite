@@ -1,7 +1,3 @@
-.body{
-    overflow-y: hidden;    
-}
-
 .mainContainer{
     max-width: 1500px;
     align-items: flex-start;
