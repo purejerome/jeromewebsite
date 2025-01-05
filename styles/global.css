@@ -210,6 +210,24 @@ body{
     visibility: none;
 }
 
+.blackBubble{
+    position: relative;
+    background-color: #1a1a1b;
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 47px -52px rgba(0,0,0,0.27);
+}
+
+.blackBubble::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100.7%;
+    height: 100.7%;
+    border-radius: 20px;
+    z-index: -1;
+    background-color: #38383998;
+}
+
 @media screen and (min-width: 1101px){
     .dropLinks{
         display: none;
