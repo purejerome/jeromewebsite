@@ -155,9 +155,9 @@ const workButtonData = [
 exitButton.addEventListener("click", () => {
   fullInfoContainer.classList.remove("visible");
   exitButton.classList.remove("visible");
-  tm = setTimeout(() => {
-    document.body.style.overflowY = "auto";
-  }, 500);
+  // tm = setTimeout(() => {
+  //   document.body.style.overflowY = "auto";
+  // }, 500);
 });
 
 // uses page data to populate the page
@@ -216,10 +216,10 @@ workButtonData.forEach((data) => {
   const button = document.getElementById(data.id);
   button.style.backgroundImage = `url(${data.coverImg})`;
   button.addEventListener("click", () => {
-    clearTimeout(tm);
+    // clearTimeout(tm);
     fullInfoContainer.classList.add("visible");
     exitButton.classList.add("visible");
-    document.body.style.overflowY = "hidden";
+    // document.body.style.overflowY = "hidden";
     populateInfo(data);
   });
 });
