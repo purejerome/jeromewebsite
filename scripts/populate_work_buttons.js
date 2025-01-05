@@ -6,7 +6,7 @@ const imageButPath = `${imagePath}button_images/`;
 const imageContPath = `${imagePath}contact_images/`;
 const videoPath = "../videos/";
 const imageEnding = "_image.png";
-const exitButton = fullInfoContainer.querySelector(".exit");
+const exitButton = document.querySelector(".exit");
 const tempDiv = document.createElement("div");
 const p = document.createElement("p");
 
@@ -16,10 +16,12 @@ infoWrap.classList.add("infoWrapper");
 const imgWrap = tempDiv.cloneNode();
 imgWrap.classList.add("innerFullInfoContainer");
 imgWrap.classList.add("imgContainer");
+imgWrap.classList.add("blackBubble");
 
 const textWrap = tempDiv.cloneNode();
 textWrap.classList.add("innerFullInfoContainer");
 textWrap.classList.add("textContainer");
+textWrap.classList.add("blackBubble");
 textWrap.appendChild(p);
 
 function debounce(func, wait) {
@@ -152,6 +154,7 @@ const workButtonData = [
 // exit button functionality
 exitButton.addEventListener("click", () => {
   fullInfoContainer.classList.remove("visible");
+  exitButton.classList.remove("visible");
   tm = setTimeout(() => {
     document.body.style.overflowY = "auto";
   }, 500);
@@ -215,6 +218,7 @@ workButtonData.forEach((data) => {
   button.addEventListener("click", () => {
     clearTimeout(tm);
     fullInfoContainer.classList.add("visible");
+    exitButton.classList.add("visible");
     document.body.style.overflowY = "hidden";
     populateInfo(data);
   });
