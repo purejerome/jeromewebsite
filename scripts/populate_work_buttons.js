@@ -336,7 +336,6 @@ const onDragStart = (event) => {
 };
 
 const onDragMove = (event) => {
-  console.log(event);
   if (!isDragging) return;
   if (hor_scroll) {
     cur_pos = event.clientX || event.touches[0].clientX;
