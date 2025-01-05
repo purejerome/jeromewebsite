@@ -1,3 +1,7 @@
+.body{
+    overflow-y: hidden;    
+}
+
 .mainContainer{
     max-width: 1500px;
     align-items: flex-start;
@@ -34,10 +38,10 @@
 }
 
 .exit{
-    position: sticky;
+    position: fixed;
     top: 3px;
     float: right;
-    right: 3px;
+    left: 3px;
     width: 35px;
     height: 35px;
     display: flex;
@@ -47,6 +51,11 @@
     border-radius: 50%;
     border: 3px solid red;
     cursor: pointer;
+    z-index: 5;
+    transition: 
+        transform 0.6s ease-in-out, 
+        opacity 0.5s linear, 
+        visibility 0.5s linear;
 }
 
 .exit:active{
@@ -54,9 +63,11 @@
 }
 
 .infoWrapper{
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .infoWrapper a{
@@ -72,9 +83,8 @@
 }
 
 .innerFullInfoContainer{
-    min-height: 100vh;
-    max-height: 100vh;
-    width: 50%;
+    height: 80%;
+    width: 45%;
 }
 
 .imgContainer{
@@ -84,7 +94,7 @@
 }
 
 .imgContainer img, .imgContainer video{
-    width: 100%;
+    width: 95%;
     height: auto;
     max-height: 95%;
 }
@@ -153,7 +163,7 @@
     border-radius: 50%;
     width: 80px;
     height: 80px;
-background: radial-gradient(circle, rgba(0,0,0,0.7345063025210083) 2%, rgba(0,0,0,0.4908088235294118) 28%, rgba(130,149,211,0) 63%);
+    background: radial-gradient(circle, rgba(0,0,0,0.7345063025210083) 2%, rgba(0,0,0,0.4908088235294118) 28%, rgba(130,149,211,0) 63%);
     pointer-events: none;
 }
 
@@ -161,6 +171,18 @@ background: radial-gradient(circle, rgba(0,0,0,0.7345063025210083) 2%, rgba(0,0,
 .projIcon:active{
     opacity: 0.6;
 }
+
+/* .innerFullInfoContainer::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(45deg, rgba(255,255,255,1) 22%, rgba(171,171,171,0.6280637254901961) 57%, rgba(255,255,255,0) 100%);
+} */
 
 
 @media screen and (max-width: 800px) {
@@ -175,15 +197,19 @@ background: radial-gradient(circle, rgba(0,0,0,0.7345063025210083) 2%, rgba(0,0,
         min-height: none;
     }
     
-    .innerFullInfoContainer{
+    .infoWrapper{
         width: 100%;
-        min-height: 60vh;
-        max-height: 60vh;
+        height: 150vh;
     }
     
-    .imgContainer{
+    .innerFullInfoContainer{
+        height: 48%;
         width: 90%;
     }
+    
+    /* .imgContainer{
+        width: 90%;
+    } */
     
     .projContainer{
         justify-content: center;
