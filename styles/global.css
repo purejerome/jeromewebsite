@@ -228,6 +228,8 @@ body{
     width: 100.7%;
     height: 100.7%;
     border-radius: 20px;
+    /* top: 0;
+    left: 0; */
     z-index: -1;
     background-color: #38383998;
 }
