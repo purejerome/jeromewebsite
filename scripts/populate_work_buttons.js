@@ -231,7 +231,7 @@ const workButtonData = [
       },
       {
         mediaType: "video",
-        media: `${videoPath}educator.mp4`,
+        media: `${videoPath}ta.mp4`,
         textContent: `
           The site was made to help educators, students, and TAs to set up times for TA hours.
           We had the ability to visualize the TA's schedule, as well as the educator's schedules.
