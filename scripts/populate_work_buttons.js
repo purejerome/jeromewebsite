@@ -149,6 +149,115 @@ const workButtonData = [
       },
     ],
   },
+  {
+    id: "GPS",
+    coverImg: `${imageButPath}GPS${imageEnding}`,
+    pageCount: 4,
+    content: [
+      {
+        mediaType: "video",
+        media: `${videoPath}GRID.mp4`,
+        textContent: `
+          Created a GPS system for Rockingham County to find routes between differnet addresses for my CS 480 class.
+          I used many differnet techniques such as Dijkstra's algorithm, map matching, route recalculation,
+          initializing a grid of intersections, streets, and street segements from a CSV file,
+          used map projection to change incoming GPGGA data into points could plot and more.
+        `,
+      },
+      {
+        mediaType: "video",
+        media: `${videoPath}SURROUNDING_SEGS.mp4`,
+        textContent: `
+          This section shows how I used the GPS system to find the surrounding segments of a street segment.
+          I broke the entire map into a grid, and searched a 3x3 grid to find the closest street segment
+          to the GPS data that was being received.
+        `,
+      },
+      {
+        mediaType: "video",
+        media: `${videoPath}MAP_MATCH.mp4`,
+        textContent: `
+          This section shows how I used the GPS system to match the GPS data to a street segment, that was actually printed,
+          to prevent the dot from being off the road. I used  a combination of intertia points to prevent
+          an abundance of boucning, as well as spliting each grid into its own thread to compare the closest
+          segment to match the dot to(the blue dot is the map matched point)(Also I will admit, as you can see, this was
+          definitely the part I struggled with the most).
+        `,
+      },
+      {
+        mediaType: "video",
+        media: `${videoPath}PATH_FINDING.mp4`,
+        textContent: `
+          This section shows some simple path finding. By far the simplest part of the project,
+          I used both label setting(Dijkstra's algorithm) and label correcting algorithms to find the shortest path.
+          I also created many different data structures to hold the data and find the smallest label
+          such as a list, buckets, and a priority queue.
+        `,
+      },
+    ],
+  },
+  {
+    id: "SPREADSHEET",
+    coverImg: `${imageButPath}SPREADSHEET${imageEnding}`,
+    pageCount: 1,
+    content: [
+      {
+        mediaType: "video",
+        media: `${videoPath}spreadsheet.mp4`,
+        textContent: `
+            For my CS 430 class, I created a spreadsheet application that could perform basic functions such as addition, subtraction, multiplication, and division.
+            As well as the ability to run my own coding language to perform more complex functions such as loops, conditionals, and variables,
+            and referncing cells as variables in other cells.
+            This used a combination of lexing, parsing, creating my own interpreter, GUI, and coding logic
+            to allow the spreadsheet to work.
+          `,
+      },
+    ],
+  },
+  {
+    id: "TASYNC",
+    coverImg: `${imageButPath}TASYNC${imageEnding}`,
+    pageCount: 4,
+    content: [
+      {
+        mediaType: "video",
+        media: `${videoPath}educator.mp4`,
+        textContent: `
+          This was a website I created in a team for my CS 347 class. It was made to help us understand how
+          frontend and backend communication works, as well as how to use Docker, Django, and React.
+          I worked on both the frontend and backend, crate API calls, and view models to help edit, view
+          delete, and create data.
+        `,
+      },
+      {
+        mediaType: "video",
+        media: `${videoPath}ta.mp4`,
+        textContent: `
+          The site was made to help educators, students, and TAs to set up times for TA hours.
+          We had the ability to visualize the TA's schedule, as well as the educator's schedules.
+        `,
+      },
+      {
+        mediaType: "video",
+        media: `${videoPath}student.mp4`,
+        textContent: `
+          Students and TAs could join a session and lock in their slot for the TA hours. This
+          was used to help orginize and streamline the process of TA hours. Students also have the
+          ability to ask questions, allowing the TA or educators to answer them depending on each subject.
+        `,
+      },
+      {
+        mediaType: "video",
+        media: `${videoPath}swap.mp4`,
+        textContent: `
+          The TAs had the ability to swap their time slots with other TAs, allowing them to
+          have more flexibility in their schedules. This was done by creating a swap request, which
+          would then be sent to the other TA, who could then accept or reject the request. Upon acceptance or rejection,
+          the other TA would be notified, and the swap would be made, and the swap would be deleted in the backend.
+        `,
+      },
+    ],
+  },
 ];
 
 // exit button functionality
@@ -186,6 +295,7 @@ function populateInfo(data) {
       media.loop = true;
       media.autoplay = true;
       media.muted = true;
+      media.playsInline = true;
       media.addEventListener("loadedmetadata", () => {
         media.playbackRate = 2;
       });
@@ -366,15 +476,12 @@ const animate = () => {
     lastCall = currentTime;
     gsap.to(icons, {
       scale: (index) => {
-        let rect = icons[index].getBoundingClientRect();
-        let dis_from_center = Math.abs(
-          parseInt(rect.x + rect.width / 2 - window.innerWidth / 2)
-        );
-        let scale_val = 1 - dis_from_center / window.innerWidth;
-        cache[index] = scale_val;
-        if (index == 1) {
-        }
-        return cache[index] || 1;
+        const rect = icons[index].getBoundingClientRect();
+        const dis = Math.abs(rect.x + rect.width / 2 - window.innerWidth / 2);
+
+        const raw = 1 - (dis * 0.6) / (window.innerWidth / 2);
+
+        return gsap.utils.clamp(0.6, 1, raw);
       },
       rotation: (index) => {
         return !icons[index].classList.contains("hovering")
