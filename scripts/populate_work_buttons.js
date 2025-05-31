@@ -10,6 +10,9 @@ const exitButton = document.querySelector(".exit");
 const tempDiv = document.createElement("div");
 const p = document.createElement("p");
 
+const loader = document.createElement("div");
+loader.classList.add("loader");
+
 const infoWrap = tempDiv.cloneNode();
 infoWrap.classList.add("infoWrapper");
 
@@ -17,6 +20,7 @@ const imgWrap = tempDiv.cloneNode();
 imgWrap.classList.add("innerFullInfoContainer");
 imgWrap.classList.add("imgContainer");
 imgWrap.classList.add("blackBubble");
+imgWrap.appendChild(loader);
 
 const textWrap = tempDiv.cloneNode();
 textWrap.classList.add("innerFullInfoContainer");
