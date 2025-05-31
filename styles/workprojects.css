@@ -120,6 +120,7 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 1;
   }
   .loader:before,
   .loader:after {
