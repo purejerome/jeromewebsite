@@ -98,6 +98,7 @@ body{
     width: 95%;
     height: auto;
     max-height: 95%;
+    z-index: 2;
 }
 
 /* .imgContainer::after{
@@ -119,7 +120,6 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: -1;
   }
   .loader:before,
   .loader:after {
