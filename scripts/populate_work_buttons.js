@@ -292,6 +292,34 @@ const workButtonData = [
       },
     ],
   },
+  {
+    id: "Henrico",
+    coverImg: `${imageButPath}Henrico${imageEnding}`,
+    pageCount: 2,
+    content: [
+      {
+        mediaType: "image",
+        media: `${imageButPath}Henrico${imageEnding}`,
+        textContent: `
+        For the summer of 2025, I worked as a Web Intern for Henrico County, Virginia.
+        I worked with Swift and SwiftUI to reengineer the iOS mobile app for the county.
+        I worked on creating the app from the ground up with the team for a data caching system
+        that would allow the app to work offline and work more efficiently, as well as an API calling system
+        that would allow the app to communicate with the backend server, as well as creating screens for the app.
+        `,
+      },
+      {
+        mediaType: "image",
+        media: `${imageContPath}me_at_henrico.jpg`,
+        textContent: `
+        Here is a picture of me at the Henrico County office.
+        I worked with a great team and learned so much about Swift and SwiftUI considering that it was my
+        first time ever working with it. I also learned a lot about how to work in a team and how to
+        communicate effectively with my team members, and overall how to enjoy working in a professional environment.
+        `,
+      },
+    ],
+  },
 ];
 
 // exit button functionality
