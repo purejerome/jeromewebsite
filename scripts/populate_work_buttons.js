@@ -262,6 +262,36 @@ const workButtonData = [
       },
     ],
   },
+  {
+    id: "AutoRE",
+    coverImg: `${imageButPath}AutoRE${imageEnding}`,
+    pageCount: 2,
+    content: [
+      {
+        mediaType: "image",
+        media: `${imageButPath}AutoRE${imageEnding}`,
+        textContent: `
+        AutoRE is a tool I created to help automate the process of clicking through a
+        site called RepostExchange. It was made to help automate the process of reposting as I used it to make connections
+        with other artists. I love music and wanted an easier way to repost others music and create connections.
+        It was created using JavaScript and the Chrome extension API, and it works by screening the page and
+        clicking the porper buttons needed to repost campaigns and requests.
+        `,
+        link: "https://github.com/purejerome/AutoRE",
+        linkTitle: "AutoRE Github",
+        downloadable: false,
+      },
+      {
+        mediaType: "video",
+        media: `${videoPath}AutoRE_walkthrough.mp4`,
+        textContent: `
+          This is a short walkthrough of the extension, showing how it works.
+          It handles up to six errors need be before stopping, and it sending information regarding
+          the amount of reposts and errors found to the extension from the content script on the site.
+        `,
+      },
+    ],
+  },
 ];
 
 // exit button functionality
